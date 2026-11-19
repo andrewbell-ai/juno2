@@ -1,0 +1,7 @@
+Juno Metrics Plan: Possible Duplicate Suggestions
+Illustrative assumptions for the theoretical product.
+1. What should change: Juno should help PMs identify ideas that may express the same customer need, verify the source evidence, and decide whether to link them without losing distinct requests or support.
+2. Goal metric: Percentage of duplicate suggestions that PMs thumbs-up. Estimated baseline without Juno: 80% of manually surfaced potential matches get a thumbs-up. Target with Juno: at least 95%.
+3. Usage metric: Number of Juno suggestions PMs review each week. Pattern to watch: PMs keep using it week after week; declining use may signal low trust.
+4. Review date: December 17, 2026, after a four-week pilot.
+5. Stop condition: Stop using Juno if fewer than 80% of its suggestions get a thumbs-up for two consecutive weeks.
