@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <title>Juno · Weekly feedback brief</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#overview" aria-label="Juno home">
+          <span class="brand-mark">j</span>
+          <span class="brand-copy"><strong>juno</strong><small>by RocketShip</small></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+        <button class="workspace-switcher" type="button">
+          <span class="workspace-avatar">R</span>
+          <span><strong>RocketShip</strong><small>Product team</small></span>
+          <span class="chevron">⌄</span>
+        </button>
+
+        <div class="nav-label">YOUR WORK</div>
+        <nav class="nav-list">
+          <button class="nav-item active" type="button" data-view="overview">
+            <span class="nav-icon">▦</span><span>Weekly brief</span>
+          </button>
+          <button class="nav-item" type="button" data-view="leadership">
+            <span class="nav-icon">▤</span><span>Leadership summary</span>
+          </button>
+          <button class="nav-item" type="button" data-filter="duplicate">
+            <span class="nav-icon">⧉</span><span>Duplicate ideas</span><span class="nav-count" id="duplicate-nav-count">1</span>
+          </button>
+          <button class="nav-item" type="button" data-filter="review">
+            <span class="nav-icon">◷</span><span>Review flags</span><span class="nav-count warm" id="review-nav-count">2</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sample-note"><span class="sample-dot"></span><div><strong>Prototype workspace</strong><small>Fictional sample data</small></div></div>
+          <button class="profile-button" type="button">
+            <span class="profile-avatar">MC</span><span><strong>Morgan Chen</strong><small>Product manager</small></span><span class="profile-more">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content" id="overview">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Juno</span><span class="crumb-sep">/</span><strong id="breadcrumb-current">Weekly brief</strong></div>
+          <div class="topbar-right"><span class="data-badge"><span class="green-dot"></span>Sample data only</span><button class="icon-button" type="button" aria-label="Notifications">♧<i></i></button><span class="top-avatar">MC</span></div>
+        </header>
+
+        <section class="page" id="overview-view">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-icon">✳</span> WEEKLY PRIORITIZATION <span class="eyebrow-divider">·</span> WEEK OF NOV 2, 2026</div>
+              <h1>Feedback, brought together.</h1>
+              <p class="page-subtitle">A clear view of what customers are asking for, before your prioritization meeting.</p>
+            </div>
+            <button class="primary-button" id="open-leadership" type="button"><span>▤</span> Leadership summary <span class="button-arrow">↗</span></button>
+          </div>
+
+          <div class="source-strip">
+            <div class="source-strip-intro"><span class="sparkle">✳</span><div><strong>Juno connected this week’s signals</strong><small>Source records are fictional for this prototype.</small></div></div>
+            <div class="source-chip"><span class="source-logo webex-logo">w</span><span><strong>Webex</strong><small id="webex-source-count">7 messages</small></span><span class="connected-check">✓</span></div>
+            <div class="source-plus">+</div>
+            <div class="source-chip"><span class="source-logo airtable-logo">▦</span><span><strong>Airtable</strong><small id="airtable-source-count">7 ideas · 30 vote records</small></span><span class="connected-check">✓</span></div>
+            <span class="source-updated">Updated just now</span>
+          </div>
+
+          <div class="metric-grid" aria-label="Weekly feedback overview">
+            <article class="metric-card"><div class="metric-top"><span>IDEAS IN THIS BRIEF</span><span class="metric-icon violet">◈</span></div><div class="metric-value" id="idea-total">7</div><div class="metric-foot"><span class="metric-caption">Across connected sample sources</span></div></article>
+            <article class="metric-card"><div class="metric-top"><span>DISTINCT SUPPORTERS</span><span class="metric-icon blue">♙</span></div><div class="metric-value" id="supporter-total">29</div><div class="metric-foot"><span class="metric-caption">Unique Airtable accounts, deduplicated</span></div></article>
+            <article class="metric-card"><div class="metric-top"><span>NEEDS YOUR REVIEW</span><span class="metric-icon amber">⚑</span></div><div class="metric-value" id="review-total">2</div><div class="metric-foot"><span class="metric-caption">Possible duplicate vote records</span><span class="foot-link" data-filter="review">Review flags <span>→</span></span></div></article>
+          </div>
+
+          <section class="signals-section" aria-labelledby="signals-heading">
+            <div class="section-heading-row">
+              <div><div class="section-kicker">THE SIGNALS</div><h2 id="signals-heading">Ideas customers are talking about</h2><p>Sorted by distinct Airtable supporters. Juno surfaces evidence; you decide what to prioritize.</p></div>
+              <div class="section-actions"><button class="soft-button" id="filter-button" type="button"><span>☷</span> Filters <span class="filter-count" id="filter-count"></span></button><button class="soft-button" id="sort-button" type="button"><span>↕</span> Most supporters <span class="chevron">⌄</span></button></div>
+            </div>
+
+            <div class="filter-row" id="filter-row">
+              <label class="search-box"><span>⌕</span><input id="search-input" type="search" placeholder="Search ideas, themes, or customer groups" aria-label="Search ideas" /><kbd>⌘ K</kbd></label>
+              <div class="filter-pills" role="group" aria-label="Filter ideas">
+                <button class="filter-pill active" type="button" data-list-filter="all">All ideas <span id="all-count">7</span></button>
+                <button class="filter-pill" type="button" data-list-filter="duplicate">Duplicate suggestions <span id="dup-count">1</span></button>
+                <button class="filter-pill" type="button" data-list-filter="review">Review flags <span id="flag-count">2</span></button>
+              </div>
+              <label class="segment-select"><span>Customer group</span><select id="segment-select" aria-label="Filter by customer group"><option value="all">All groups</option><option value="IT & operations">IT & operations</option><option value="Sales teams">Sales teams</option><option value="Contact centers">Contact centers</option><option value="Hybrid teams">Hybrid teams</option></select></label>
+            </div>
+
+            <div class="table-wrap">
+              <table class="ideas-table">
+                <thead><tr><th class="rank-col">RANK</th><th>FEATURE IDEA</th><th>SUPPORT</th><th>CUSTOMER GROUPS</th><th>WEBEX MATCH</th><th>REVIEW</th><th class="more-col"></th></tr></thead>
+                <tbody id="ideas-body"></tbody>
+              </table>
+              <div class="empty-state hidden" id="empty-state"><span>⌕</span><strong>No ideas match these filters</strong><small>Try changing your search or clearing a filter.</small><button type="button" id="clear-filters">Clear filters</button></div>
+            </div>
+            <div class="table-footnote"><span class="info-icon">i</span> Support counts represent unique Airtable accounts per idea. Webex messages are evidence, not votes.<button type="button" class="learn-more" id="count-help">How counts work</button></div>
+          </section>
+          <footer class="page-footer"><span><span class="footer-juno">✳</span> Prepared by Juno <span class="footer-dot">·</span> For PM review</span><span>All people and records shown are fictional</span></footer>
+        </section>
+
+        <section class="page leadership-page hidden" id="leadership-view">
+          <div class="page-heading leadership-heading">
+            <div><button class="back-link" id="back-to-brief" type="button">← Back to weekly brief</button><div class="eyebrow"><span class="eyebrow-icon">✳</span> LEADERSHIP BRIEF <span class="eyebrow-divider">·</span> WEEK OF NOV 2, 2026</div><h1>Customer signals, at a glance.</h1><p class="page-subtitle">A source-backed snapshot for this week’s product prioritization conversation.</p></div>
+            <button class="soft-button print-button" type="button" onclick="window.print()"><span>↥</span> Print summary</button>
+          </div>
+          <div class="leadership-callout"><span class="callout-icon">✳</span><div><strong>What’s emerging</strong><p>Customers are asking for less manual effort across routine workflows, including meeting follow-through, voicemail review, and access administration. The two meeting recap requests may overlap, but confirm the match before combining their support.</p><small>Interpretation based on sample records · Review the evidence before making a decision</small></div></div>
+          <div class="leadership-stats"><div><span>IDEAS REVIEWED</span><strong id="lead-ideas">7</strong></div><div><span>UNIQUE SUPPORTERS</span><strong id="lead-supporters">29</strong></div><div><span>OPEN REVIEW FLAGS</span><strong id="lead-flags">2</strong></div></div>
+          <section class="lead-section"><div class="lead-section-header"><div><div class="section-kicker">RANKED BY DISTINCT SUPPORT</div><h2>What customers are asking for</h2></div><span class="rank-note">Vote counts show support volume, not a product decision.</span></div><div id="leadership-list" class="leadership-list"></div></section>
+          <section class="leadership-bottom-grid"><article class="insight-card"><div class="section-kicker">SIGNAL TO WATCH</div><h3>Some feedback points to a broader workflow need</h3><p>Requests for recaps, follow-up actions, and easier sharing may connect to a common need: helping teams carry decisions out of meetings. Treat this as a hypothesis for PM review.</p><button type="button" class="text-button" id="open-workflow-idea">See related evidence <span>→</span></button></article><article class="review-summary-card"><div class="review-card-heading"><span class="review-icon">⚑</span><div><div class="section-kicker">REVIEW BEFORE SHARING</div><h3>Vote records to check</h3></div></div><p>Juno found repeated Airtable records from the same account on an idea. They count once toward distinct support and remain visible for your review.</p><button type="button" class="soft-button" data-filter="review">Review flagged records <span>→</span></button></article></section>
+          <footer class="page-footer"><span><span class="footer-juno">✳</span> Prepared by Juno <span class="footer-dot">·</span> Interpretation is labeled for PM review</span><span>All people and records shown are fictional</span></footer>
+        </section>
+      </main>
+    </div>
+
+    <div class="drawer-backdrop hidden" id="drawer-backdrop"></div>
+    <aside class="detail-drawer hidden" id="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <div class="drawer-header"><div><span class="drawer-kicker" id="drawer-kicker">IDEA DETAILS</span><div class="drawer-controls"><button type="button" id="drawer-prev" aria-label="Previous idea">←</button><button type="button" id="drawer-next" aria-label="Next idea">→</button></div></div><button type="button" class="drawer-close" id="drawer-close" aria-label="Close details">×</button></div>
+      <div class="drawer-content" id="drawer-content"></div>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
